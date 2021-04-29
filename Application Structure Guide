@@ -1,0 +1,39 @@
+This is a Receipt Application where the issuer can create, read, update and delete their receipts.
+
+Interface:
+- Issuer can view receipt form
+- Issuer can submit receipt form
+- Issuer can edit receipt
+- Issuer can delete/destroy receipt
+
+Issuer class
+  - attributes => name, password [DONE]
+  - issuer signs up/logs in
+  - has many receipts [DONE]
+
+Issuer controller and views
+  - '/issuer/signup' => renders sign up form [DONE]
+  - '/issuer/signup' => process sign up form, creates issuer, POST [DONE]
+  - '/issuer/login' => renders login form
+  - '/issuer/login' => process login form, POST
+  - need to set sessions
+  - issuer can view their receipts, '/issuer/:id/receipts'
+
+Receipts class
+  - attributes => quantity, item, item_price, total [DONE]
+  - receipt belong to the issuer. [DONE]
+
+Receipts controller and views
+  - '/receipts/new' => renders create receipts form
+  - '/receipts' => submit receipts
+  - '/receipts' => renders all receipts
+  - '/receipts/id' => renders one instance
+  - '/receipts/:id/edit' => renders update receipts for an instance
+  - '/receipts/:id' => update instance
+  - '/receipts/:id/delete' => deletes instance
+
+  TO DO:
+  - set up classes [DONE]
+  - set up database [DONE]
+  - users controller
+  - order controller
