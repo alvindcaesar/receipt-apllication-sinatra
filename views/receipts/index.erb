@@ -1,0 +1,10 @@
+<% @receipt.each do |receipt| %>
+
+  Receipt ID: <%= receipt.id %>
+  Item : <%= receipt.item %>
+  Quantity: <%= receipt.quantity %>
+  Item price: <%= receipt.item_price %>
+  Total Price: <%= receipt.total_price %>
+  Issuer Name: <%= receipt.issuer.username %>
+
+<% end %>

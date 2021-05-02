@@ -1,0 +1,12 @@
+<h1>Edit Receipt Form</h1>
+
+<form action="/receipts/<%= @receipt.id %>" method="POST">
+  <input id="hidden" type="hidden" name="method" value="patch">
+
+  Item: <input type="text" name="item" value="<%= @receipt.item %>">
+  Quantity: <input type="number" name="quantity" value="<%= @receipt.quantity %>">
+  Item Price: <input type="number" name="item_price" value="<%= @receipt.item_price %>">
+  Total Price: <input type="number" name="total_price" value="<%= @receipt.total_price %>">
+  <input type="submit" name="" value="Apply">
+
+</form>

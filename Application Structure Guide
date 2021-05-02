@@ -24,8 +24,8 @@ Receipts class
   - receipt belong to the issuer. [DONE]
 
 Receipts controller and views
-  - '/receipts/new' => renders create receipts form
-  - '/receipts' => submit receipts
+  - '/receipts/new' => renders create receipts form [DONE]
+  - '/receipts' => submit receipts [DONE]
   - '/receipts' => renders all receipts
   - '/receipts/id' => renders one instance
   - '/receipts/:id/edit' => renders update receipts for an instance
