@@ -1,6 +1,6 @@
 <h1>Receipt Form</h1>
 
-<form action="/receipts" method="POST">
+<form action="/receipts/<%= @issuer.id %>" method="POST">
 
   Item: <input type="text" name="item" value="">
   Quantity: <input type="number" name="quantity" value="">

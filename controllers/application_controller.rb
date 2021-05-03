@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-# Issuer Controller#####################
+# Issuer Controller
 
   get '/issuers/signup' do
     erb :'/issuers/signup'
@@ -17,28 +17,25 @@ class ApplicationController < Sinatra::Base
 
   post '/issuers/signup' do
     @issuer = Issuer.create(username: params[:username], password: params[:password])
-    redirect "/issuers/#{ @issuer.id }"
+    redirect "/issuers/#{ @issuer.id }/receipt/new"
   end
 
-  get '/issuers/:id' do
-    @issuer = Issuer.find(params[:id])
-    erb :'issuers/dashboard'
-  end
-#########################################
 
-# Receipt Controller####################3
+# Receipt Controller
 
 # CREATE
-get '/receipts/new' do
+get '/issuers/:issuer_id/receipt/new' do
+ @issuer = Issuer.find(params[:issuer_id])
   erb :'receipts/new_receipt'
 end
 
-post '/receipts' do
+post '/receipts/:issuer_id' do
   @receipt = Receipt.create(
     item: params[:item],
     quantity: params[:quantity],
     item_price: params[:item_price],
-    total_price: params[:total_price]
+    total_price: params[:total_price],
+    issuer_id: params[:issuer_id]
   )
   redirect "/receipts/#{@receipt.id}"
 end
@@ -68,6 +65,7 @@ post '/receipts/:id' do
     item_price: params[:item_price],
     total_price: params[:total_price]
   )
+
   redirect "/receipts/#{@receipt.id}"
 end
 
@@ -76,16 +74,5 @@ delete '/receipts/:id/delete' do
   @receipt = Receipt.find(params[:id])
   @receipt.destroy
   redirect "/receipts/new"
-end
-
-# get '/receipts/:id/delete' do
-#   receipt = Receipt.find(params[:id])
-#   if receipt
-#     receipt.destroy
-#   else
-#     "Something wrong"
-#   redirect "/receipts/new"
-#   end
-# end
-
+ end
 end

@@ -3,6 +3,10 @@ Quantity: <%= @receipt.quantity %><br>
 Item Price: RM<%= @receipt.item_price %><br>
 Total Price: RM<%= @receipt.total_price %><br>
 
+
+<a href="/receipts/<%= @receipt.id %>/edit">
+  <button type="button" name="button">Edit</button>
+  <br>
 <form class="" action="/receipts/<%= @receipt.id %>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
